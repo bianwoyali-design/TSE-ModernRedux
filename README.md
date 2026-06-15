@@ -121,7 +121,7 @@ TSE/
 
 TSE was created by **YAN Hongfei** (闫宏飞) at the Network Lab of Peking University.
 
-- Web: http://net.pku.edu.cn/~webg/src/TSE/
+- Web (historical): http://net.pku.edu.cn/~webg/src/TSE/
 - Contact : yanhf AT pku.edu.cn
 
 The original source tarballs are preserved in this directory for reference.
