@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiny Search Engine</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>TSE</h1>
+    <p class="subtitle">Tiny Search Engine</p>
+    <p class="desc">An educational search engine created at Peking University (2003–2004)</p>
+  </header>
+
+  <form id="search-form" class="search-box">
+    <input type="text" id="q" name="q" placeholder="Enter search query…" autofocus autocomplete="off">
+    <button type="submit">Search</button>
+  </form>
+
+  <div id="stats" class="stats hidden"></div>
+
+  <ol id="results" class="result-list"></ol>
+
+  <div id="pagination" class="pagination hidden"></div>
+
+  <div id="snapshot-overlay" class="snapshot-overlay hidden">
+    <div class="snapshot-bar">
+      <button id="snapshot-close" class="back-btn">&larr; Back to results</button>
+    </div>
+    <iframe id="snapshot-frame" class="snapshot-frame"></iframe>
+  </div>
+
+  <footer>
+    <p>TSE 2.0 — Modernized for macOS. Original: <a href="http://net.pku.edu.cn/~webg/src/TSE/" target="_blank">PKU NetLab</a></p>
+  </footer>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>

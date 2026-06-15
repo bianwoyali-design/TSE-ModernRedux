@@ -1,0 +1,58 @@
+TSE相关程序，录音和讲稿由闫宏飞完成并提供	yhf AT net.pku.edu.cn
+TSE.mp3是66分钟的讲解，讲稿是TSE.pdf
+
+tse_tutorial.pdf 是侯锐<hsw212 AT 163.com>学习过程中写的。
+
+陈渝的学习笔记在<wilbur8415 AT 163.com>，http://hi.baidu.com/wilbur2008
+
+TSE的分词用的是,http://net.pku.edu.cn/~webg/src/ChSeg/
+已经集成到,http://net.pku.edu.cn/~webg/src/TSE/index.040709-2342.Linux.tar.gz
+
+------------------------------------------------------
+TSE includes
+1) crawing module written by YAN Hongfei in Aug. 2003
+2) indexing module by YAN Hongfei in Apr 2004
+3) servicing module by YAN Hongfei in Apr 2004
+
+	1) in tse.XXXXXX-XXXX.Linux.tar.gz
+	2) and 3) in index.XXXXXX-XXXX.Linux.tar.gz
+
+------------------------------------------------------
+
+2. crawling module
+1) unpack the software and compile it
+tar xvfz tse.040422-1152.Linux.tar.gz
+make
+
+2) running
+nohup ./Tse -c tse_seed.pku &
+
+3) If you want repeat crawling,execute "sh Clean.sh"
+
+note: all site in the "tse_unreachHost.list" will not be crawled
+
+通过看文件名中包含的日期和时间获得最新的TSE包。e.g: tse.040422-1152.Linux.tar.gz 是目前(2004年4月22日11:52)最新的。
+包解开后有README文件，仔细阅读，可能与以前的版本有些不同。
+
+----------------------------------------------
+
+hlink.080731-2355.tar.gz
+	it is good for Red Hat Enterprise Linux AS release 3 (Taroon)
+		and Ubuntu 8.04.1
+	but files in "hlink" and "uri" dirs are older than those in tse.
+
+-----------------------
+hlink.031023-1010.tar.gz	由谢翰完成并提供	<e AT pku.edu.cn> or <xh AT net.pku.edu.cn>
+	it is good for Red Hat Enterprise Linux AS release 3 (Taroon) 
+	but files in "stack", "hlink", and "uri" dirs are older than those in tse.
+说明:
+页面分析部分。代码中注释很清楚。
+写了一个小小的测试程序test，make之后就有了。index.htm是sohu的主页，test.htm是一个里面有很多很奇怪链接的页面。
+    $ ./test index.htm http://www.sohu.com/index.htm
+    $ ./test test.htm
+    list目录下的list.h是从Linux内核中提取并改造的。其它的每一行都是我写的。
+
+review: 
+by yhf, hlink.tar.gz has been integrated into TSE. 
+----------------------------------------------
+
