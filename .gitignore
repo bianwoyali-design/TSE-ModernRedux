@@ -2,47 +2,28 @@
 build/
 cmake-build-*/
 
-# Generated flex lexers
-tse/hlink/lex.hlink.c
-tse/uri/lex.uri.c
+# Runtime data
+Data/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
 
-# Binaries and libraries
-tse/tse
-tse/tse-*
-tse/libtse_*.a
-tse/*.o
-
-# Crawl output / runtime data
-Tianwang.raw.*
-Link4SE.raw.*
-*.url
-*.all
-visited.all
-tse_md5.*
-moon.fidx
-moon.fidx.sort
-*.seg
-sun.iidx
-Doc.idx
-Url.idx*
-DocId2Url.idx
-tse_unvisited.url
-logfile
-tse/WebData.*
-tse/seeds.txt
-tse/seeds
-tse/repli
+# Tool caches
+.cache/
 
 # macOS
 .DS_Store
 
-# IDE
+# IDE/editor
 .vscode/
 .idea/
 *.swp
 *.bak
 *.orig
 
-# Large original tarballs
+# Large local artifacts
 *.tar.gz
 *.mp3
