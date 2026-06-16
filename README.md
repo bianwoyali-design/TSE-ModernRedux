@@ -17,6 +17,67 @@ cmake --build build
 
 Open `http://localhost:8888/` in a browser.
 
+## Docker
+
+Build the image:
+
+```bash
+docker build -t tse-modernization .
+```
+
+Use a host-mounted `Data/` directory so the SQLite database survives container
+restarts:
+
+```bash
+mkdir -p Data
+docker run --rm -v "$PWD/Data:/app/Data" tse-modernization init --db /app/Data/tse.db
+docker run --rm -v "$PWD/Data:/app/Data" tse-modernization crawl --db /app/Data/tse.db --seeds /app/tse/seed --max-pages 50 --workers 4
+docker run --rm -p 8888:8888 -v "$PWD/Data:/app/Data" tse-modernization
+```
+
+Open `http://localhost:8888/` after the server starts.
+
+## Apple Container
+
+Apple's `container` CLI can build and run the same `Dockerfile` on Apple
+silicon Macs with macOS 26 or later. Install `container`, then start its system
+service:
+
+```bash
+container system start
+```
+
+Build the image:
+
+```bash
+container build -t tse-modernization .
+```
+
+Use a named volume for the SQLite database:
+
+```bash
+container volume create tse-data
+container run --rm -v tse-data:/app/Data tse-modernization init --db /app/Data/tse.db
+container run --rm -v tse-data:/app/Data tse-modernization crawl --db /app/Data/tse.db --seeds /app/tse/seed --max-pages 50 --workers 4
+container run --name tse-web --rm -d -p 8888:8888 -v tse-data:/app/Data tse-modernization
+```
+
+Open `http://localhost:8888/`. Stop the server with:
+
+```bash
+container stop tse-web
+```
+
+With Docker Compose:
+
+```bash
+mkdir -p Data
+docker compose build
+docker compose run --rm tse init --db /app/Data/tse.db
+docker compose run --rm tse crawl --db /app/Data/tse.db --seeds /app/tse/seed --max-pages 50 --workers 4
+docker compose up
+```
+
 ## CLI
 
 ```bash

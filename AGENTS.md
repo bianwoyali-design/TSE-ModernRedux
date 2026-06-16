@@ -28,6 +28,13 @@ Use the CLI locally:
 ./build/tse serve --db Data/tse.db --web web --port 8888
 ```
 
+Build and run with Docker:
+
+```bash
+docker build -t tse-modernization .
+docker run --rm -p 8888:8888 -v "$PWD/Data:/app/Data" tse-modernization
+```
+
 ## Coding Style & Naming Conventions
 
 Use C++23, RAII, and Almost Always Auto for local variables when the initializer makes the type clear. Project headers use `.hpp`, sources use `.cpp`, and headers use `#pragma once`. Do not add `using namespace std` to headers. Prefer `std::string`, containers, smart pointers, prepared SQLite statements, and scoped resource wrappers over raw owning pointers, `malloc/free`, `FILE*`, or manual cleanup. Keep names descriptive and namespace all project code under `tse`.
