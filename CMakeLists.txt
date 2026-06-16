@@ -27,7 +27,7 @@ target_include_directories(tse_core PUBLIC
 )
 
 target_link_libraries(tse_core PUBLIC
-    SQLite3::SQLite3
+    SQLite::SQLite3
     OpenSSL::SSL
     OpenSSL::Crypto
     ZLIB::ZLIB
